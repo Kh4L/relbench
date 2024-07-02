@@ -212,6 +212,8 @@ for epoch in range(1, args.epochs + 1):
         if val_metrics[tune_metric] >= best_val_metric:
             best_val_metric = val_metrics[tune_metric]
             state_dict = copy.deepcopy(model.state_dict())
+    else:
+        print(f"Epoch: {epoch:02d}, Train loss: {train_loss}")
 
 
 model.load_state_dict(state_dict)
